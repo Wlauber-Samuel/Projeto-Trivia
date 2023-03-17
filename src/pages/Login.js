@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Login extends React.Component {
   state = {
@@ -15,6 +16,7 @@ class Login extends React.Component {
     // const REGEX_EMAIL = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     const MIN_LENGTH = 1;
     const { email, name } = this.state;
+    const { history } = this.props;
     return (
       <div>
         <label>
@@ -48,9 +50,22 @@ class Login extends React.Component {
         >
           Play
         </button>
+        <button
+          type="button"
+          onClick={ () => history.push('/settings') }
+          data-testid="btn-settings"
+        >
+          Settings
+        </button>
       </div>
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Login;
