@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import user from './user';
-import wallet from './wallet';
+import gamepage from './gamepage';
 
 const rootReducer = combineReducers({
-  user,
-  wallet,
+  gamepage,
 });
 
 export default rootReducer;
